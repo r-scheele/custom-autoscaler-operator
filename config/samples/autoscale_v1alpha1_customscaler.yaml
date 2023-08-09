@@ -1,0 +1,20 @@
+apiVersion: autoscale.example.com/v1alpha1
+kind: CustomScaler
+metadata:
+  labels:
+    app.kubernetes.io/name: customscaler
+    app.kubernetes.io/instance: customscaler-sample
+    app.kubernetes.io/part-of: custom-autoscaler-operator
+    app.kubernetes.io/managed-by: kustomize
+    app.kubernetes.io/created-by: custom-autoscaler-operator
+  name: customscaler-sample
+spec:
+  cooldownPeriod: 30   # Example: wait 30 seconds before scaling again
+  deploymentName: "example-deployment"  # Replace with your deployment name
+  maxReplicas: 5   # Example: maximum of 5 replicas
+  metricSource: "http://metric-source-endpoint"  # Replace with your metric source endpoint
+  minReplicas: 1   # Example: minimum of 1 replica
+  scaleDownThreshold: 10   # Scale down if the queue goes below 10 (decrease by 1 replica)
+  scaleUpThreshold: 20   # Scale up if the queue goes above 20 (increase by 1 replica)
+
+

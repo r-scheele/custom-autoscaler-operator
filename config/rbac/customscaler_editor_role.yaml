@@ -1,0 +1,31 @@
+# permissions for end users to edit customscalers.
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  labels:
+    app.kubernetes.io/name: clusterrole
+    app.kubernetes.io/instance: customscaler-editor-role
+    app.kubernetes.io/component: rbac
+    app.kubernetes.io/created-by: custom-autoscaler-operator
+    app.kubernetes.io/part-of: custom-autoscaler-operator
+    app.kubernetes.io/managed-by: kustomize
+  name: customscaler-editor-role
+rules:
+- apiGroups:
+  - autoscale.example.com
+  resources:
+  - customscalers
+  verbs:
+  - create
+  - delete
+  - get
+  - list
+  - patch
+  - update
+  - watch
+- apiGroups:
+  - autoscale.example.com
+  resources:
+  - customscalers/status
+  verbs:
+  - get

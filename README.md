@@ -15,6 +15,8 @@ You’ll need a Kubernetes cluster to run against. You can use [KIND](https://si
 
 ### Running on the cluster
 
+Check the example deployment in the `config/samples` directory. This deployment will be used to test the CustomScaler controller.
+
 ```sh
 make deploy IMG=rscheele3214/custom-autoscaler-operator:latest
 ```
